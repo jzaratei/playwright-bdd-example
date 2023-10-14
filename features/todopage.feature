@@ -19,3 +19,10 @@ Feature: Todo Page
       And I complete todo "bar"
       And I filter todos as "Completed"
       Then visible todos count is 1
+
+    Scenario: parallel sharing
+      When I add todo "item1"
+      And I add todo "item2"
+      And I add todo "item3"
+      Then I assert all todos
+      

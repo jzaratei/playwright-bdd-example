@@ -12,6 +12,8 @@ const testDir = defineBddConfig({
 export default defineConfig({
   testDir,
   reporter: 'html',
+  fullyParallel: true,
+  workers: 2,
   use: {
     screenshot: 'only-on-failure',
     baseURL: 'http://localhost:3000',

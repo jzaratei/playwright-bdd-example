@@ -8,7 +8,7 @@ class TodoPage {
   readonly inputBox: Locator;
   readonly todoItems: Locator;
 
-  constructor(public page: Page) {
+  constructor(public page: Page, public todoList: string[]) {
     this.inputBox = this.page.locator('input.new-todo');
     this.todoItems = this.page.getByTestId('todo-item');
   }
@@ -22,6 +22,7 @@ class TodoPage {
   async addToDo(text: string) {
     await this.inputBox.fill(text);
     await this.inputBox.press('Enter');
+    this.todoList.push(text)
   }
 
   @When('I complete todo {string}')
@@ -46,4 +47,5 @@ class TodoPage {
   async matchScreenshot() {
     await expect(this.page).toHaveScreenshot();
   }
+
 }
