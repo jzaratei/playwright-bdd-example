@@ -20,6 +20,7 @@ class TodoPage {
 
   @When('I add todo {string}')
   async addToDo(text: string) {
+    console.log(`process: ${process.pid}`)
     await this.inputBox.fill(text);
     await this.inputBox.press('Enter');
     this.todoList.push(text)

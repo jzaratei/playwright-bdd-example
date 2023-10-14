@@ -14,6 +14,7 @@ class AssertTodoPage {
 
   @Then('I assert all todos')
   async addElement() {
+    console.log(`process: ${process.pid}`)
     await expect(this.todoItems).toHaveText(this.todoList)
   }
 }
